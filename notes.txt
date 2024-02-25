@@ -1,0 +1,216 @@
+
+hii this is gitdesktop example
+
+what is react?
+open source javascript library for building user interfaces
+not a framework
+focus on UI
+
+why learn react?
+created and mainted by facebook
+more than 100k starts on github
+Huge community
+in demand skillset
+
+Component based Architecture
+component--reusable code
+react is declarative---tell react what you want and react will build the actual UI
+react will handle efficiently updating and rendering of the components
+dom updates are handles gracefully in react.
+
+
+More on why react?
+seamlessly integrste react into any of your applications
+portion of your age or a complete page or even an entire application itself.
+react native for mobile applications
+
+Prerequisites
+Html,css and javascript fundamentals
+ES6--modern javascript 
+javascript--this keyword,filter,map and reduce
+ES6--let&const,arrow functions,template literals,default parameters,object literals,rest and spread operations and destructuring assignment.
+
+channel content-react
+fundaments--->http--->routing--->redux--->utilities
+
+create-react-app :
+                npx                                                         npm
+npx create-react-app project_name                                       npm install create-react-app -g                 
+npm is the package runner when we install node js                       create-react-app project_name
+
+folder structure
+package.json:this file contains dependencies and scripts required for the projects.
+node_module:this is the folder and in this all the dependencies are added it is generated when we run the creat-react-app in command prompt
+ public folder: this folder contains 3 files out of 3 manifest.json concerned with progressive web apps
+ index.html: this is the only one file to create the single page applications
+
+ src folder:
+ starting point of react aplication is index.js we specify the route component i.e.. App
+ dom element is controlled by react. in our example dom element is an element with the id root thet we collected in index.html
+the App component is render inside root domnode
+App component present in app.js represents the view which we see in the browser
+App.css used for styling
+App.test.js is used for testing like unit testing
+serviceWorker.js is used for progressive web applications
+
+components
+components are reusable
+components also contain other components
+
+component in code
+component code is usually placed in javascript file. for examle AppComponent placed in App.js we can also have appcomponents in jsx extention.
+
+component types:
+1.stateless functional component(s.f.c)
+2.stateful class component(s.c.c)
+
+s.f.c                                                           s.c.c
+regular javascript functions                                    regular ES6 functios
+1.functional components literally                           1.class extending component class from react library
+javascript functions they return                               they must contain render method returning the HTML
+html to display UI                                                 example:
+examle:
+function called welcome return the h1 tag hello  vishwas             class welcome extends React.Component{                                                                        render()                                      
+function welcome(props){                                                render(){
+    return <h1>hello {props.name}</h1>                                     return <h1>hello, {this.props.name}</h1>                                              
+}                                                                              }}
+
+components summary
+components describe a part os the user interfaces
+They are re-usable and can be nested inside other components
+
+functionalcomponents
+functional componnets (javascript function ) they can optionally receive the properties(props) and return the html(jsx)
+
+class components
+class components (ES6) also otionally receive the properties(props) and return the html(jsx)
+class components also maintain private internall state in similar words it is also maintain some information which is private to that component  and use that information to describe userinterface 
+when we use class components we need to include two imports
+import React, {compoent} from 'react'
+import React and component class from react
+
+
+functional vs class components
+functional
+1.simple functions
+2.use functional components as much as possible
+3.absence of this keyword
+4.solution without using state
+5.mainly responsible for the UI
+6.also called stateless/dumb/presentational
+
+class components
+1.More feature rich
+2.maintain their own private data -(called)state
+3.complex ui logic
+4.provides life cycle hooks
+5.also called as stateful/smart/container components
+
+new featureReact 16.7.0-alpha
+cool new feature which kind of contradicts what we've learnt about functional versus state components
+
+introducing hooks
+hooks are a new feature proposal that use state and other react features without writing a class.They're currently in react v16.7.0-alpha and being discussed in an oen RFC
+
+hooks
+1.no breaking changes
+2.compltely opt-in and also 100% backwards-compatible
+what ever we've learned so far in this series still holds good.
+to understand hooks we go through using state,lifecycle method and this binding
+
+
+jsx
+JavaScript XML (JSX) is an extension to the JavaScript language syntax. With React, it's an extension to write XML-like code for 
+elements and components. And just like XML, JSX tags have a tag name, attributes, and children.
+
+javascript xml(jsx)-extension to the javascript language syntax.
+write xml-like code for elements and components.
+jsx tags have a tag name,attributes,and children.
+jsx is not a necessity to write react applications.
+jsx makes your react code simpler and elegant.
+jsx ultimately transpiles to pure javascript which is understood by the browsers.
+
+without jsx
+we use the React.createElement() and it accepts 3 parameters
+1.string we specify html tag to be render
+2.we can pass optional properties like id,className etc otherwise we can also pass null. and it is also a object of key value pair that will be applied to the element object is always specified in {}
+3.childeren for the html element
+
+JSX differences
+class->classNamefor->htmlFor
+
+camelCase property naming convention
+1.onclick->onclick
+2.tabindex->tabIndex
+
+Props---->properties
+props short for properties, is the optional input that your component can accept.
+It also allows the component content to be dynamic.
+components are reusable for example we reuse the Greet comonent we duplicate it twice we use the app.js <Greet /> two times by passing these is not useless but we modify to greet three people using props using the same component  
+1.step:add the parameter to the functional component hear we are going to call props
+2.this parameter in the function body
+more than 1 line we use {}.
+
+in jsx wrapping is done one if we want to use wrapping we use div tag
+example:Greet.js
+return (
+    <h1>hello {props.name} a.k.a {props.heroName}</h1>
+    {props.children}
+)
+when we run this command it through an error if we prevent this error we use div tag
+
+return(
+    <div>
+    <h1>
+    helllo {props.name} a.k.a {props.heroName}
+    </h1>
+    {props.children}
+    </div>
+)
+
+Classcomonentprops.js we have welcome class unlike functional component where we secify the props parameter in a classcomponent the proerties are available through this.props this is reserved in classcomonent. 
+props are immutable the values are not changed.
+
+state
+State is similar to props, but it is private and fully controlled by the component.
+
+
+props vs state
+props                                                           state
+1.props get passed to the comonent              1.state is managed within the component 
+2.function parameters                           2.variables declare d in the function body
+3.props are immutable                           3.state can be changed
+4.props-Functional Components                   4.useState Hook-Functional component
+this.props-class components                         this.state-class component
+
+
+task
+when we click on button the message  welcome visitor changes to  thank you for subscribing this tsk will not acheive by using props because props are immutable so the solution is component states following steps are required
+1.create state object and intialise it so this step is usally done inside the class constructor with in the constructor we call the super() this is required because we extended ReactComponent class a call has to be made for base(super) class
+then we create our state object this.state={} ---->null object
+this.state={
+    message:'welcome visitor'
+}
+
+2.binde this state value in  render section
+render(){
+    return <h1>{this.state.message}</h1>  //same like props
+}
+
+3.add ()to the return statement and also create enclosing div tag. () required because jsx has multiple lines of code.div tag because react wants one element returned. and move message to the div tag and add button  
+4.when we click on subscribe button the msg as to be change for that we use onClick attribute so this is the event handler so we use {arrow function}
+5.to change the state of the comonent we need to use setState()
+this.setState() accepts
+
+setState() has two parameters
+1.state object
+2.callback function
+
+setState
+1.always make use of setState and never modify the state directly.
+2.code has to be executed after the state has been udated? place that code in the call back function which is the second argument to the setState method.
+3.when you have update state based on theprevious state value,pass in a function as an argument instead of the regular object.
+
+Destructuring props and state
+Destructuring is the es6 feature that makes it possible to unpack values from arrays or properties from objects into distinct variables
+
